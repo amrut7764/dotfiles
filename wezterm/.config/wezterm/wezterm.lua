@@ -56,15 +56,13 @@ config.tab_bar_at_bottom = false
 config.enable_tab_bar = false
 
 -- Appearance
-config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
+config.font = wezterm.font("MesloLGS Nerd Font Mono", { weight = "Bold" })
 config.font_size = 20.0
 config.color_scheme = color_scheme_for_appearance(wezterm.gui.get_appearance())
-config.window_background_opacity = window_background_opacity
 config.macos_window_background_blur = 10
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 config.native_macos_fullscreen_mode = false
-config.use_fancy_tab_bar = false
 config.window_padding = {
   left = 3,
   right = 3,
