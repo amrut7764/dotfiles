@@ -56,7 +56,7 @@ config.tab_bar_at_bottom = false
 config.enable_tab_bar = false
 
 -- Appearance
-config.font = wezterm.font("MesloLGS Nerd Font Mono", { weight = "Bold" })
+config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 config.font_size = 20.0
 config.color_scheme = color_scheme_for_appearance(wezterm.gui.get_appearance())
 config.macos_window_background_blur = 10
