@@ -27,6 +27,18 @@ return {
           reasoning_effort = 'medium', -- low|medium|high, only used for reasoning models
         },
       },
+      gemini = {
+        endpoint = 'https://generativelanguage.googleapis.com/v1beta/models',
+        model = 'gemini-2.0-flash',
+        timeout = 30000, -- Timeout in milliseconds
+        context_window = 1048576,
+        use_ReAct_prompt = true,
+        extra_request_body = {
+          generationConfig = {
+            temperature = 0.75,
+          },
+        },
+      },
     },
   },
   dependencies = {
