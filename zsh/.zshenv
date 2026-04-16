@@ -28,3 +28,11 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
 # Hide computer name in terminal
 export DEFAULT_USER="$(whoami)"
+# >>> Claude Code Configuration >>>
+# Added by Claude Code installer - Do not edit this block manually
+export AWS_PROFILE="bedrock"
+export CLAUDE_CODE_USE_BEDROCK=1
+export AWS_REGION="us-east-1"
+export ANTHROPIC_MODEL="us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+export ANTHROPIC_SMALL_FAST_MODEL="us.anthropic.claude-haiku-4-5-20251001-v1:0"
+# <<< Claude Code Configuration <<<

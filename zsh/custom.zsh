@@ -14,6 +14,12 @@ setopt LONG_LIST_JOBS
 ## Disable flow control and hence restore the ability to use C-s and C-q
 setopt NO_FLOW_CONTROL
 
+## History Setup
+#
+HISTFILE=$HOME/.zsh_history
+SAVEHIST=10000
+HISTSIZE=999
+
 setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups

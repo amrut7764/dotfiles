@@ -29,6 +29,7 @@ fi
 # Other aliases
 # ------------------------------------------------------------------------------
 alias n="nvim"
+alias vim="nvim"
 alias k="kubectl"
 alias kg="kubectl get"
 alias kgp="kubectl get pods"

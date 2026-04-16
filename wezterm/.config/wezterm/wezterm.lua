@@ -56,7 +56,8 @@ config.tab_bar_at_bottom = false
 config.enable_tab_bar = false
 
 -- Appearance
-config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
+-- config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
+config.font = wezterm.font("BlexMono Nerd Font Mono")
 config.font_size = 20.0
 config.color_scheme = color_scheme_for_appearance(wezterm.gui.get_appearance())
 config.macos_window_background_blur = 10
@@ -93,51 +94,54 @@ config.background = {
   },
 }
 -- -- Keybindings
--- config.keys = {
---   -- Default QuickSelect keybind (CTRL-SHIFT-Space) gets captured by something
---   -- else on my system
---   {
---     key = "A",
---     mods = "CTRL|SHIFT",
---     action = wezterm.action.QuickSelect,
---   },
---   {
---     key = "O",
---     mods = "CTRL|SHIFT",
---     action = wezterm.action.EmitEvent("toggle-window-background-opacity"),
---   },
---   {
---     key = "E",
---     mods = "CTRL|SHIFT",
---     action = wezterm.action.EmitEvent("toggle-ligatures"),
---   },
---   -- Quickly open config file with common macOS keybind
---   {
---     key = ",",
---     mods = "SUPER",
---     action = wezterm.action.SpawnCommandInNewWindow({
---       cwd = os.getenv("WEZTERM_CONFIG_DIR"),
---       args = { os.getenv("SHELL"), "-c", "$VISUAL $WEZTERM_CONFIG_FILE" },
---     }),
---   },
---   -- Quickly open config file with alternative keybind
---   {
---     key = "<",
---     mods = "CTRL|SHIFT",
---     action = wezterm.action.SpawnCommandInNewWindow({
---       cwd = os.getenv("WEZTERM_CONFIG_DIR"),
---       args = { os.getenv("SHELL"), "-c", "$VISUAL $WEZTERM_CONFIG_FILE" },
---     }),
---   },
---   -- Spawn Window without tmux
---   {
---     key = ">",
---     mods = "CTRL|SHIFT",
---     action = wezterm.action.SpawnCommandInNewWindow({
---       args = { os.getenv("SHELL"), "-l", "-c", "zsh" },
---     }),
---   },
--- }
+config.keys = {
+  { key = "LeftArrow", mods = "SUPER", action = wezterm.action.SendString("\u{1b}OH") },
+  { key = "RightArrow", mods = "SUPER", action = wezterm.action.SendString("\u{1b}OF") },
+  { key = "Backspace", mods = "SUPER", action = wezterm.action.SendString("\u{15}") },
+  ---   -- Default QuickSelect keybind (CTRL-SHIFT-Space) gets captured by something
+  --   -- else on my system
+  --   {
+  --     key = "A",
+  --     mods = "CTRL|SHIFT",
+  --     action = wezterm.action.QuickSelect,
+  --   },
+  --   {
+  --     key = "O",
+  --     mods = "CTRL|SHIFT",
+  --     action = wezterm.action.EmitEvent("toggle-window-background-opacity"),
+  --   },
+  --   {
+  --     key = "E",
+  --     mods = "CTRL|SHIFT",
+  --     action = wezterm.action.EmitEvent("toggle-ligatures"),
+  --   },
+  --   -- Quickly open config file with common macOS keybind
+  --   {
+  --     key = ",",
+  --     mods = "SUPER",
+  --     action = wezterm.action.SpawnCommandInNewWindow({
+  --       cwd = os.getenv("WEZTERM_CONFIG_DIR"),
+  --       args = { os.getenv("SHELL"), "-c", "$VISUAL $WEZTERM_CONFIG_FILE" },
+  --     }),
+  --   },
+  --   -- Quickly open config file with alternative keybind
+  --   {
+  --     key = "<",
+  --     mods = "CTRL|SHIFT",
+  --     action = wezterm.action.SpawnCommandInNewWindow({
+  --       cwd = os.getenv("WEZTERM_CONFIG_DIR"),
+  --       args = { os.getenv("SHELL"), "-c", "$VISUAL $WEZTERM_CONFIG_FILE" },
+  --     }),
+  --   },
+  --   -- Spawn Window without tmux
+  --   {
+  --     key = ">",
+  --     mods = "CTRL|SHIFT",
+  --     action = wezterm.action.SpawnCommandInNewWindow({
+  --       args = { os.getenv("SHELL"), "-l", "-c", "zsh" },
+  --     }),
+  --   },
+}
 
 -- Return config to WezTerm
 return config
