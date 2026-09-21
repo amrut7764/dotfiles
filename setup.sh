@@ -165,7 +165,7 @@ setup_zsh() {
 
   # Create symlinks
   ln -sf "$REPO_ROOT/zsh/.zshrc" "$HOME/.zshrc"
-  ln -sf "$REPO_ROOT/zsh/.zshenv" "$HOME/.config/zsh/.zshenv"
+  ln -sf "$REPO_ROOT/zsh/.zshenv" "$HOME/.zshenv"
   ln -sf "$REPO_ROOT/zsh/aliases.zsh" "$HOME/.config/zsh/aliases.zsh"
   ln -sf "$REPO_ROOT/zsh/bindings.zsh" "$HOME/.config/zsh/bindings.zsh"
   ln -sf "$REPO_ROOT/zsh/fzf.zsh" "$HOME/.config/zsh/fzf.zsh"
