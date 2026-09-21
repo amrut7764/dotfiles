@@ -6,6 +6,9 @@
 # Aliases
 [ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
 
+# Local config (Git Ignored)
+[ -f "$HOME/.config/zsh/.zshrc.local" ] && source "$HOME/.config/zsh/.zshrc.local"
+
 # >>> Claude Code Configuration >>>
 # Added by Claude Code installer - Do not edit this block manually
 
@@ -15,15 +18,6 @@ if [[ -f "/opt/homebrew/bin/brew" ]]; then
 elif [[ -f "/usr/local/bin/brew" ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
-
-# Claude Code aliases
-alias claude-login="aws sso login --profile bedrock"
-alias claude-logout="aws sso logout --profile bedrock"
-alias claude-status="aws sts get-caller-identity --profile bedrock 2>/dev/null && echo \"✓ SSO session active\" || echo \"✗ SSO session expired - run: aws sso login --profile bedrock\""
-alias claude-refresh="aws sso logout --profile bedrock 2>/dev/null; aws sso login --profile bedrock"
-alias claude-whoami="aws sts get-caller-identity --profile bedrock --query Arn --output text 2>/dev/null || echo \"Not logged in\""
-
-# <<< Claude Code Configuration <<<
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

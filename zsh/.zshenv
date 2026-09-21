@@ -10,9 +10,24 @@ export LANG="en_US.UTF-8" # Sets default locale for all categories
 export LC_ALL="en_US.UTF-8" # Overrides all other locale settings
 export LC_CTYPE="en_US.UTF-8" # Controls character classification and case conversion
 
+## Setting the ZDOTDIR
+if [[ -z "$XDG_CONFIG_HOME" ]]
+then
+    export XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
+then
+    export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+fi
+
+
 # Use Neovim as default editor
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# ---------- GPG ----------
+export GPG_TTY=$(tty)
 
 # Add /usr/local/bin to the beginning of the PATH environment variable.
 # This ensures that executables in /usr/local/bin are found before other directories in the PATH.
@@ -28,11 +43,4 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
 # Hide computer name in terminal
 export DEFAULT_USER="$(whoami)"
-# >>> Claude Code Configuration >>>
-# Added by Claude Code installer - Do not edit this block manually
-export AWS_PROFILE="bedrock"
-export CLAUDE_CODE_USE_BEDROCK=1
-export AWS_REGION="us-east-1"
-export ANTHROPIC_MODEL="us.anthropic.claude-sonnet-4-5-20250929-v1:0"
-export ANTHROPIC_SMALL_FAST_MODEL="us.anthropic.claude-haiku-4-5-20251001-v1:0"
-# <<< Claude Code Configuration <<<
+

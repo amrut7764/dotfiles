@@ -41,7 +41,7 @@ if wezterm.config_builder then
 end
 
 -- Start tmux when opening WezTerm
-config.default_prog = { "/bin/zsh", "-l", "-c", "--", "tmux new -As base" }
+config.default_prog = { "/bin/zsh", "-l", "-c", "--", "/opt/homebrew/bin/tmux new -As base -f ~/.config/.tmux.conf" }
 
 -- Skip closing confirmation when tmux is running
 config.skip_close_confirmation_for_processes_named = { "tmux" }
@@ -58,7 +58,7 @@ config.enable_tab_bar = false
 -- Appearance
 -- config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 config.font = wezterm.font("BlexMono Nerd Font Mono")
-config.font_size = 20.0
+config.font_size = 18.0
 config.color_scheme = color_scheme_for_appearance(wezterm.gui.get_appearance())
 config.macos_window_background_blur = 10
 config.window_decorations = "RESIZE"

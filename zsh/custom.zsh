@@ -6,6 +6,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
 
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
 # General Options
 # ------------------------------------------------------------------------------
 ## List jobs in the long format by default.
@@ -16,17 +18,40 @@ setopt NO_FLOW_CONTROL
 
 ## History Setup
 #
-HISTFILE=$HOME/.zsh_history
-SAVEHIST=10000
-HISTSIZE=999
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+SAVEHIST=100000
+HISTSIZE=100000
 
-setopt share_history
-setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_verify
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+
+## Shell Behavior 
+setopt AUTOCD
+setopt NOBEEP
+setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward 
+
+# Initialize zoxide
+eval "$(zoxide init zsh)"
+
+# Load completion system
+autoload -Uz compinit
+
+# Initialize completion with cached metadata file
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
+
+# Enable interactive completion menu selection
+zstyle ':completion:*' menu select
+
+# Make completion case-insensitive
+# Example: "doc" can complete to "Documents"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # lowercase input matches upper and lower
 
 # Set Up Line Editor
 # ------------------------------------------------------------------------------
@@ -49,6 +74,53 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+# =========================================================
+# Fuzzy finder
+# =========================================================
+
+# macOS / Homebrew (Apple Silicon)
+if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
+  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+  source /opt/homebrew/opt/fzf/shell/completion.zsh
+fi
+
+# macOS / Homebrew (Intel)
+if [[ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+
+# Arch
+if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
+fi
+
+# Ubuntu
+if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  source /usr/share/doc/fzf/examples/completion.zsh
+fi
+
+# =========================================================
+# Modular Config Files
+# =========================================================
+
+# fzf configuration
+source "$ZDOTDIR/fzf.zsh"
+
+# Aliases
+source "$ZDOTDIR/aliases.zsh"
+
+# Custom keybindings
+source "$ZDOTDIR/bindings.zsh"
+
+# Plugins and plugin manager
+#source "$ZDOTDIR/plugins.zsh"
+
+# Prompt/theme
+source "$ZDOTDIR/prompt.zsh"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
