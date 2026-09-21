@@ -10,7 +10,16 @@
 #   CLI tools:    eza, bat, nvim, ripgrep
 #   Node:         nvm
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew setup (macOS only)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Apple Silicon
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  # Intel Mac
+  elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
 
 # =========================================================
 # History
@@ -39,8 +48,11 @@ setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 # Smart directory navigation & lf
 # =========================================================
 
-LF_ICONS=$(cat ~/.config/lf/icons | tr '\n' ':')
-export LF_ICONS
+# lf file manager icons
+if [[ -f ~/.config/lf/icons ]]; then
+  LF_ICONS=$(cat ~/.config/lf/icons | tr '\n' ':')
+  export LF_ICONS
+fi
 
 # Initialize zoxide
 eval "$(zoxide init zsh)"
