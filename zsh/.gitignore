@@ -1,0 +1,17 @@
+# Machine-specific local config
+local.zsh
+.zshrc.local
+
+# Zsh completion cache
+.zcompdump*
+.zcompcache/
+
+# Zsh history
+.zsh_history
+.zsh_sessions/
+
+# Plugin directories (auto-installed by plugins.zsh on first run)
+plugins/
+
+# Backup files
+*.backup

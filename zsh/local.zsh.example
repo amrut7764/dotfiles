@@ -1,0 +1,29 @@
+# local.zsh.example
+# Machine-specific configuration template
+# Copy to local.zsh and customize for your machine
+# local.zsh is gitignored and never committed
+
+# Example: AWS profile configuration
+# export AWS_PROFILE="your-profile"
+# export AWS_REGION="us-east-1"
+
+# Example: Claude Code Bedrock configuration
+# export CLAUDE_CODE_USE_BEDROCK=1
+# export ANTHROPIC_MODEL="us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+# export ANTHROPIC_SMALL_FAST_MODEL="us.anthropic.claude-haiku-4-5-20251001-v1:0"
+
+# Example: API keys (NEVER commit these!)
+# export OPENAI_API_KEY="sk-..."
+# export ANTHROPIC_API_KEY="sk-ant-..."
+
+# Example: Custom aliases
+# alias work-vpn="sudo openconnect vpn.company.com"
+# alias dev-ssh="ssh user@dev-server"
+
+# Example: Project-specific paths
+# export PROJECT_ROOT="$HOME/projects/myproject"
+# export PATH="$PROJECT_ROOT/bin:$PATH"
+
+# Example: Tool-specific config
+# export EDITOR="code"  # Override default nvim
+# export BROWSER="firefox"

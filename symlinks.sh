@@ -1,11 +1,21 @@
 # Define an array of symbolic link sources and targets
+# NOTE: Run ./setup.sh instead for automated setup (includes dependencies, git submodules, etc.)
+
+# Zsh
 $(pwd)/zsh/.zshrc:$HOME/.zshrc
-$(pwd)/zsh/.zshenv:$HOME/.zshenv
-#$(pwd)/zsh/custom.zsh:$HOME/.config/zsh/custom.zsh
+$(pwd)/zsh/.zshenv:$HOME/.config/zsh/.zshenv
 $(pwd)/zsh/aliases.zsh:$HOME/.config/zsh/aliases.zsh
-#$(pwd)/zsh/git-completion.bash:$HOME/.config/zsh/git-completion.bash
-#$(pwd)/zsh/git-completion.zsh:$HOME/.config/zsh/git-completion.zsh
+$(pwd)/zsh/bindings.zsh:$HOME/.config/zsh/bindings.zsh
+$(pwd)/zsh/fzf.zsh:$HOME/.config/zsh/fzf.zsh
+$(pwd)/zsh/plugins.zsh:$HOME/.config/zsh/plugins.zsh
+$(pwd)/zsh/prompt.zsh:$HOME/.config/zsh/prompt.zsh
+
+# Starship
 $(pwd)/starship/starship.toml:$HOME/.config/starship/starship.toml
+
+# Tmux (requires gpakosz/.tmux framework cloned to ~/.tmux)
+$(pwd)/tmux/gitmux.conf:$HOME/.tmux/gitmux.conf
+# Note: tmux/.tmux.conf.local is copied (not symlinked) by setup.sh
 $(pwd)/nvim:$HOME/.config/nvim
 #$(pwd)/vim/.vimrc:$HOME/.vimrc
 # $(pwd)/tmux/tmux.conf:$HOME/.config/tmux/tmux.conf

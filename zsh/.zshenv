@@ -1,46 +1,30 @@
+# ~/.config/zsh/.zshenv
 
-# XDG Base directory specification
-export XDG_CONFIG_HOME="$HOME/.config"         # Config files
-export XDG_CACHE_HOME="$HOME/.cache"           # Cache files
-export XDG_DATA_HOME="$HOME/.local/share"      # Application data
-export XDG_STATE_HOME="$HOME/.local/state"     # Logs and state files
+# ---------- XDG base directories ----------
+# Centralizes config/cache/data locations
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
-# Locale settings
-export LANG="en_US.UTF-8" # Sets default locale for all categories
-export LC_ALL="en_US.UTF-8" # Overrides all other locale settings
-export LC_CTYPE="en_US.UTF-8" # Controls character classification and case conversion
-
-## Setting the ZDOTDIR
-if [[ -z "$XDG_CONFIG_HOME" ]]
-then
-    export XDG_CONFIG_HOME="$HOME/.config"
-fi
-
-if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
-then
-    export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-fi
-
-
-# Use Neovim as default editor
+# ---------- Editor ----------
+# Default editor used by git, crontab, etc.
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# ---------- Pager ----------
+if command -v bat >/dev/null 2>&1; then
+  export MANPAGER="bat -l man -p"
+elif command -v batcat >/dev/null 2>&1; then
+  export MANPAGER="batcat -l man -p"
+fi
 
 # ---------- GPG ----------
 export GPG_TTY=$(tty)
 
-# Add /usr/local/bin to the beginning of the PATH environment variable.
-# This ensures that executables in /usr/local/bin are found before other directories in the PATH.
-export PATH="/usr/local/bin:$PATH"
+# ---------- Starship ----------
+export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 
-# Set LDFLAGS environment variable for the linker to use the specified directories for library files.
-# This is useful when building software that depends on non-standard library locations, like zlib and bzip2 in this case.
-export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
-
-# Set CPPFLAGS environment variable for the C/C++ preprocessor to use the specified directories for header files.
-# This is useful when building software that depends on non-standard header locations, like zlib and bzip2 in this case.
-export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
-
-# Hide computer name in terminal
-export DEFAULT_USER="$(whoami)"
-
+# ---------- PATH ----------
+# Personal binaries/scripts
+export PATH="$HOME/.local/bin:$PATH"
