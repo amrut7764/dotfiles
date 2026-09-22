@@ -285,12 +285,14 @@ main() {
   echo "=========================================="
   echo
   echo "Next steps:"
-  echo "  1. Restart terminal or run: source ~/.zshrc"
+  echo "  1. Restart shell: exec zsh"
   echo "  2. Launch nvim (plugins will auto-install on first run)"
   echo "  3. Launch wezterm (will auto-start tmux)"
   echo "  4. Edit ~/.config/zsh/local.zsh for machine-specific config"
   echo
   echo "Note: Zsh plugins will auto-install on first shell launch"
+  echo
+  echo "After pulling config changes, reload with: ./post-setup.sh"
   echo
 }
 

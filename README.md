@@ -26,9 +26,16 @@ Setup script will:
 - Configure zsh with 5 auto-installing plugins
 
 After setup:
-1. Restart terminal or `source ~/.zshrc`
+1. Restart shell: `exec zsh` (or restart terminal)
 2. Launch `nvim` (plugins auto-install on first run)
 3. Launch `wezterm` (auto-starts tmux)
+
+**After pulling config changes:**
+```bash
+./post-setup.sh  # Reload configs in current shell
+# OR
+exec zsh         # Restart shell completely
+```
 
 ## What's Included
 
@@ -112,7 +119,7 @@ fc-cache -fv
 # Then reconnect SSH session
 ```
 
-After install: `source ~/.zshrc`
+After install: `exec zsh`
 
 ## Manual Setup
 
