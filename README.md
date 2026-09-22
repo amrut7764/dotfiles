@@ -58,6 +58,42 @@ After setup:
 
 Zsh plugins work identically across platforms.
 
+### Linux Manual Tool Install
+
+Some tools need manual binary install on Linux. Download correct architecture:
+
+**Check architecture:**
+```bash
+uname -m  # x86_64 or aarch64
+```
+
+**Starship (prompt):**
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
+**eza (modern ls):**
+```bash
+# x86_64
+wget https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz
+tar -xzf eza_x86_64-unknown-linux-gnu.tar.gz
+
+# ARM64 (Raspberry Pi)
+wget https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz
+tar -xzf eza_aarch64-unknown-linux-gnu.tar.gz
+
+# Install
+sudo mv eza /usr/local/bin/
+rm eza_*.tar.gz
+```
+
+**zoxide (smart cd):**
+```bash
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+```
+
+After install: `source ~/.zshrc`
+
 ## Manual Setup
 
 For manual setup or troubleshooting, see `symlinks.sh` for all symlink mappings.
