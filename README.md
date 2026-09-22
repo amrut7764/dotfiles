@@ -2,6 +2,12 @@
 
 Personal development environment configuration for macOS and Linux. Covers: zsh, Neovim, WezTerm, tmux, Starship prompt.
 
+## Requirements
+
+**Nerd Font:** Install in terminal emulator for proper tmux/starship icons:
+- macOS: Download from [Nerd Fonts](https://www.nerdfonts.com/), install via Font Book, configure in terminal preferences
+- Linux: See manual install instructions below
+
 ## Quick Start
 
 ```bash
@@ -90,6 +96,20 @@ rm eza_*.tar.gz
 **zoxide (smart cd):**
 ```bash
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+```
+
+**Nerd Font (for tmux/starship icons):**
+```bash
+# Install Hack Nerd Font
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip
+unzip Hack.zip
+rm Hack.zip
+fc-cache -fv
+
+# Configure terminal to use "Hack Nerd Font"
+# Then reconnect SSH session
 ```
 
 After install: `source ~/.zshrc`
