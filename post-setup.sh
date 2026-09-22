@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Post-setup script to reload shell configuration
 # Run after pulling changes or modifying configs
 
