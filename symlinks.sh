@@ -4,6 +4,7 @@
 # Zsh
 $(pwd)/zsh/.zshrc:$HOME/.zshrc
 $(pwd)/zsh/.zshenv:$HOME/.zshenv
+$(pwd)/zsh/.zshrc:$HOME/.config/zsh/.zshrc
 $(pwd)/zsh/aliases.zsh:$HOME/.config/zsh/aliases.zsh
 $(pwd)/zsh/bindings.zsh:$HOME/.config/zsh/bindings.zsh
 $(pwd)/zsh/fzf.zsh:$HOME/.config/zsh/fzf.zsh

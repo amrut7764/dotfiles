@@ -166,6 +166,10 @@ setup_zsh() {
   # Create symlinks
   ln -sf "$REPO_ROOT/zsh/.zshrc" "$HOME/.zshrc"
   ln -sf "$REPO_ROOT/zsh/.zshenv" "$HOME/.zshenv"
+
+  # Also symlink .zshrc in ZDOTDIR (prevents zsh-newuser-install prompt in tmux)
+  ln -sf "$REPO_ROOT/zsh/.zshrc" "$HOME/.config/zsh/.zshrc"
+
   ln -sf "$REPO_ROOT/zsh/aliases.zsh" "$HOME/.config/zsh/aliases.zsh"
   ln -sf "$REPO_ROOT/zsh/bindings.zsh" "$HOME/.config/zsh/bindings.zsh"
   ln -sf "$REPO_ROOT/zsh/fzf.zsh" "$HOME/.config/zsh/fzf.zsh"
